@@ -11,7 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ctpurnell/Jan11.git"
+    "url": "git+https://github.com/Ctpurnell/Jan11.git",
+    "dependencies": {
+      "inquirer": "^8.0.0"
+    }
   },
   "author": "",
   "license": "ISC",
