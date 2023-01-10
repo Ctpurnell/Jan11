@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -15,8 +15,8 @@
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Ctpurnell/Jan11/issues"
-  },
-  "homepage": "https://github.com/Ctpurnell/Jan11#readme"
-}
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}  
+  
