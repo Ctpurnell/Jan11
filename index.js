@@ -98,28 +98,69 @@ fs.writeFileSync('team-profile.html', HTML, (err) => {
     const managerAnswers = await inquirer.prompt(managerQuestions);
     const manager = new Manager(managerAnswers);
 
- employees.push(manager);
+    employees.push(manager);
 };
 
+const createEngineer = async () => {
+    const engineerQuestions = [
+        {
+            type: 'input',
+            message: 'Please enter Engineer name:',
+            name:'name',
+            validate: validateInput,
+        },
+        {
+            type: 'input',
+            message: 'Please enter the Engineer ID:',
+            name:'id',
+            validate: validateInput,
+        },
+        {
+            type: 'input',
+            message: 'Please enter the Engineer gitHub:',
+            name:'github',
+            validate: validateInput, 
+        },
+        {
+            type: 'input',
+            message: 'Please enter the email:',
+            name:'email',
+            validate: validateInput,
+        },
+    ];
 
+    const engineerAnswers = await inquirer.prompt(engineerQuestions);
+    const engineer = new Engineer(engineerAnswers);
 
+    employees.push(engineer);
+};
 
+const createIntern = async () => {
+    const internQuestions = [
+        {
+            type: 'input',
+            message: 'Please enter Intern name:',
+            name:'name',
+            validate: validateInput,
+        },
+        {
+            type: 'input',
+            message: 'Please enter the ID:',
+            name:'id',
+            validate: validateInput,
+        },
+        {
+            type: 'input',
+            message: 'Please enter the email:',
+            name:'email',
+            validate: validateInput,
+        },
+    ];
 
+    const internAnswers = await inquirer.prompt(internQuestions);
+    const intern = new Intern(internAnswers);
 
+    employees.push(intern);
+};
 
-
-// function writeFile(data) {
-//     fs.writeFile('index.html', generateHTML(data), (err) =>
-//     err ? console.log(err) : console.log('Gnerated HTML!')
-//     )};
-
-// function init() {
-//     inquirer
-//     .prompt(employees)
-// .then((response) => {
-//     writeFile(response)
-
-// })
-// }
-
-// init();
+ init();
