@@ -1,27 +1,27 @@
 {
   "name": "jan11",
   "version": "1.0.0",
-  "description": "",
+  "description": "Class assignment due Jan11",
   "main": "index.js",
   "directories": {
-    "test": "test"
+    "lib": "lib",
+    "test": "tests"
   },
   "scripts": {
-    "start": "node server.js"
+    "test": "npm test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ctpurnell/Jan11.git",
-    
+    "url": "git+https://github.com/Ctpurnell/Jan11.git"
   },
-  "author": "",
-  "license": "MIT",
+  "author": "Chris Purnell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ctpurnell/Jan11/issues"
+  },
+  "homepage": "https://github.com/Ctpurnell/Jan11#readme",
   "dependencies": {
-    "inquirer": "^8.0.0",
-    "express": "^4.16.4"
-  },
-  "devDependencies": {
-    "jest": "^26.0.1"
+    "inquirer": "^8.2.4",
+    "jest": "^24.8.0"
   }
-}  
-  
+}

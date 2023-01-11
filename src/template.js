@@ -1,14 +1,14 @@
 module.exports = (employeeArr) => {
-    const { name, id, email, role, officeNumber } = employeeArr.manager;
-  
-    return `
+  const { name, id, email, role, officeNumber } = employeeArr.manager; //takes input and creates the HTML..............
+
+  return `
    <!DOCTYPE html>
   <html lang="en">
     <head>
       <meta charset="UTF-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="../dist/styles.css" />
+      <link rel="stylesheet" href="./style.css" />
       <title>Team Profile Generator</title>
     </head>
     <body>
@@ -22,10 +22,6 @@ module.exports = (employeeArr) => {
               <div id="card-head">
                 <h3>${name}</h3>
                 <div id="role">
-                  <img
-                    src="../dist/images/manager-icon.png"
-                    alt="Icon of a coffee cup"
-                  />
                   <h4>${role}</h4>
                 </div>
               </div>
@@ -49,10 +45,6 @@ module.exports = (employeeArr) => {
               <div id="card-head">
                 <h3>${engineer.name}</h3>
                 <div id="role">
-                  <img
-                    src="../dist/images/engineer-icon.png"
-                    alt="Icon of a gear"
-                  />
                   <h4>${engineer.role}</h4>
                 </div>
               </div>
@@ -77,7 +69,7 @@ module.exports = (employeeArr) => {
             </div>
           </div>`;
             })
-            .join(' ')} 
+            .join(" ")} 
           ${employeeArr.intern
             .map((intern) => {
               return `<div id="employee-card">
@@ -85,10 +77,6 @@ module.exports = (employeeArr) => {
               <div id="card-head">
                 <h3>${intern.name}</h3>
                 <div id="role">
-                  <img
-                    src="../dist/images/intern-icon.png"
-                    alt="Icon of a graduation hat"
-                  />
                   <h4>${intern.role}</h4>
                 </div>
               </div>
@@ -106,15 +94,10 @@ module.exports = (employeeArr) => {
             </div>
           </div>`;
             })
-            .join(' ')} 
+            .join(" ")} 
         </div>
       </main>
     </body>
   </html>
     `;
-  };
-
-
-
-
-
+};
