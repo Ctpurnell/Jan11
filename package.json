@@ -12,13 +12,12 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Ctpurnell/Jan11.git",
-    "dependencies": {
-      "inquirer": "^8.0.0"
-    }
+    
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
+    "inquirer": "^8.0.0",
     "express": "^4.16.4"
   },
   "devDependencies": {
