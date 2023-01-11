@@ -13,39 +13,39 @@ describe("Manager", () => {
       const manager = new Manager(newManager);
       expect(manager).toBeInstanceOf(Manager);
     });
-    test("creates a new engineer with a name, id and email and office number", () => {
-      const intern = new Intern(newIntern);
+    test("creates a new Manager with a name, id and email and office number", () => {
+      const manager = new Manager(newManager);
       expect(intern).toEqual({
         name: "Chris",
         id: 201,
         email: "ctp0941@gmail.com",
-        gitHub: "Ctpurnell@github.com",
-        role: "Intern",
+        officeNumber: 150,
+        role: "Manager",
       });
     });
   });
   describe("method test", () => {
     test("returns an id when the method is called", () => {
-      const intern = new Intern(newIntern);
-      expect(intern.getId()).toEqual(201);
+      const manager = new Manager(newManager);
+      expect(manager.getId()).toEqual(201);
     });
 
     test("returns a name when the method is called", () => {
-      const intern = new Intern(newIntern);
-      expect(intern.getName()).toEqual("Chris");
+      const manager = new Manager(newManager);
+      expect(manager.getName()).toEqual("Chris");
     });
 
     test("returns an email when the method is called", () => {
-      const intern = new Intern(newIntern);
-      expect(intern.getEmail()).toEqual("ctp0941@gmail.com");
+      const manager = new Manager(newManager);
+      expect(manager.getEmail()).toEqual("ctp0941@gmail.com");
     });
     test("returns a github profile when the method is called", () => {
-      const intern = new Intern(newIntern);
-      expect(intern.getGithub()).toEqual("Ctpurnell@github.com");
+      const manager = new Manager(newManager);
+      expect(manager.getOfficeNumber()).toEqual(150);
     });
     test("returns a role when the method is called", () => {
-      const intern = new Intern(newIntern);
-      expect(intern.getRole()).toEqual("Engineer");
+      const manager = new Manager(newManager);
+      expect(manager.getRole()).toEqual("Manager");
     });
   });
 });
