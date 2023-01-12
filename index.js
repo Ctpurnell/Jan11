@@ -1,67 +1,65 @@
-const inquirer = require('inquirer');
-const fs = require('fs');
+const inquirer = require("inquirer");
+const fs = require("fs");
+const generatePage = require("./src/template");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+const Manager = require("./lib/Manager");
 
-const generatePage = require('./src/template');
-
-const Engineer = require('./lib/Engineer');
-const Intern = require('./lib/Intern');
-const Manager = require('./lib/Manager');
-
-const employeeArr = { manager: '', engineer: [], intern: [] };
+const employeeArr = { manager: "", engineer: [], intern: [] };
 
 const promptManager = () => {
-  console.log('\n\n--- Manager ---');
+  console.log("\n\n--- Manager ---");
 
   return inquirer
     .prompt([
       {
-        type: 'input',
-        name: 'managerName',
-        message: 'What is your team managers name?',
+        type: "input",
+        name: "managerName",
+        message: "What is your team managers name?",
         validate: (managerNameInput) => {
           if (managerNameInput) {
             return true;
           } else {
-            console.log('You need to enter a name!');
+            console.log("You need to enter a name!");
             return false;
           }
         },
       },
       {
-        type: 'input',
-        name: 'managerId',
-        message: 'Enter employee ID for the manager:',
+        type: "input",
+        name: "managerId",
+        message: "Enter employee ID for the manager:",
         validate: (managerIdInput) => {
           if (managerIdInput) {
             return true;
           } else {
-            console.log('You need to enter an ID number!');
+            console.log("You need to enter an ID number!");
             return false;
           }
         },
       },
       {
-        type: 'input',
-        name: 'managerEmail',
-        message: 'Enter email address for the manager:',
+        type: "input",
+        name: "managerEmail",
+        message: "Enter email address for the manager:",
         validate: (managerEmailInput) => {
           if (managerEmailInput) {
             return true;
           } else {
-            console.log('You need to enter an email!');
+            console.log("You need to enter an email!");
             return false;
           }
         },
       },
       {
-        type: 'input',
-        name: 'officeNumber',
-        message: 'Enter the office number:',
+        type: "input",
+        name: "officeNumber",
+        message: "Enter the office number:",
         validate: (officeNumber) => {
           if (officeNumber) {
             return true;
           } else {
-            console.log('You need to enter an office number!');
+            console.log("You need to enter an office number!");
             return false;
           }
         },
@@ -75,7 +73,7 @@ const promptManager = () => {
         managerName,
         managerId,
         managerEmail,
-        'Manager',
+        "Manager",
         officeNumber
       );
 
@@ -84,57 +82,57 @@ const promptManager = () => {
 };
 
 const promptEngineer = () => {
-  console.log('\n\n--- Engineer ---');
+  console.log("\n\n--- Engineer ---");
   return inquirer
     .prompt([
       {
-        type: 'input',
-        name: 'engineerName',
-        message: 'What is your engineers name?',
+        type: "input",
+        name: "engineerName",
+        message: "What is your engineers name?",
         validate: (engineerNameInput) => {
           if (engineerNameInput) {
             return true;
           } else {
-            console.log('You need to enter a name!');
+            console.log("You need to enter a name!");
             return false;
           }
         },
       },
       {
-        type: 'input',
-        name: 'engineerId',
-        message: 'Enter employee ID for the engineer:',
+        type: "input",
+        name: "engineerId",
+        message: "Enter employee ID for the engineer:",
         validate: (engineerIdInput) => {
           if (engineerIdInput) {
             return true;
           } else {
-            console.log('You need to enter an ID number!');
+            console.log("You need to enter an ID number!");
             return false;
           }
         },
       },
       {
-        type: 'input',
-        name: 'engineerEmail',
-        message: 'Enter email address for the engineer:',
+        type: "input",
+        name: "engineerEmail",
+        message: "Enter email address for the engineer:",
         validate: (engineerEmailInput) => {
           if (engineerEmailInput) {
             return true;
           } else {
-            console.log('You need to enter an email!');
+            console.log("You need to enter an email!");
             return false;
           }
         },
       },
       {
-        type: 'input',
-        name: 'githubUser',
-        message: 'Enter the engineers github username:',
+        type: "input",
+        name: "githubUser",
+        message: "Enter the engineers github username:",
         validate: (githubInput) => {
           if (githubInput) {
             return true;
           } else {
-            console.log('You need to enter a username!');
+            console.log("You need to enter a username!");
             return false;
           }
         },
@@ -148,7 +146,7 @@ const promptEngineer = () => {
         engineerName,
         engineerId,
         engineerEmail,
-        'Engineer',
+        "Engineer",
         githubUser
       );
 
@@ -159,58 +157,58 @@ const promptEngineer = () => {
 };
 
 const promptIntern = () => {
-  console.log('\n\n--- Intern ---');
+  console.log("\n\n--- Intern ---");
 
   return inquirer
     .prompt([
       {
-        type: 'input',
-        name: 'internName',
-        message: 'What is your interns name?',
+        type: "input",
+        name: "internName",
+        message: "What is your Interns name?",
         validate: (internNameInput) => {
           if (internNameInput) {
             return true;
           } else {
-            console.log('You need to enter a name!');
+            console.log("You need to enter a name!");
             return false;
           }
         },
       },
       {
-        type: 'input',
-        name: 'internId',
-        message: 'Enter employee ID for the intern:',
+        type: "input",
+        name: "internId",
+        message: "Enter employee ID for the intern:",
         validate: (internIdInput) => {
           if (internIdInput) {
             return true;
           } else {
-            console.log('You need to enter an ID number!');
+            console.log("You need to enter an ID number!");
             return false;
           }
         },
       },
       {
-        type: 'input',
-        name: 'internEmail',
-        message: 'Enter email address for the intern:',
+        type: "input",
+        name: "internEmail",
+        message: "Enter Intern email:",
         validate: (internEmailInput) => {
           if (internEmailInput) {
             return true;
           } else {
-            console.log('You need to enter an email!');
+            console.log("You need to enter an email!");
             return false;
           }
         },
       },
       {
-        type: 'input',
-        name: 'school',
-        message: 'Enter the interns school:',
+        type: "input",
+        name: "school",
+        message: "Enter the interns school:",
         validate: (schoolInput) => {
           if (schoolInput) {
             return true;
           } else {
-            console.log('You need to enter a school!');
+            console.log("You need to enter a school!");
             return false;
           }
         },
@@ -223,7 +221,7 @@ const promptIntern = () => {
         internName,
         internId,
         internEmail,
-        'Intern',
+        "Intern",
         school
       );
 
@@ -237,16 +235,16 @@ const nextPrompt = () => {
   return inquirer
     .prompt([
       {
-        type: 'list',
-        name: 'nextSteps',
-        message: 'Please choose from one of the following:',
-        choices: ['Add an Engineer', 'Add an Intern', 'Finish building team'],
+        type: "list",
+        name: "nextSteps",
+        message: "Choose from one of the following:",
+        choices: ["Add an Engineer", "Add an Intern", "Finish building team"],
       },
     ])
     .then((chosenStep) => {
-      if (chosenStep.nextSteps == 'Add an Engineer') {
+      if (chosenStep.nextSteps == "Add an Engineer") {
         promptEngineer();
-      } else if (chosenStep.nextSteps == 'Add an Intern') {
+      } else if (chosenStep.nextSteps == "Add an Intern") {
         promptIntern();
       } else {
         generateWebpage();
@@ -255,10 +253,10 @@ const nextPrompt = () => {
 };
 function generateWebpage() {
   employeeProfiles = generatePage(employeeArr);
-  fs.writeFile('./dist/Employees.html', employeeProfiles, (err) => {
+  fs.writeFile("./dist/Employees.html", employeeProfiles, (err) => {
     if (err) throw new Error(err);
     console.log(
-      'Your HTML has been created! Check out HTML in this directory to see it!'
+      "Your HTML has been created! Check out HTML in this directory to see it!"
     );
   });
 }
